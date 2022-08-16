@@ -13,6 +13,7 @@ import { isStageFilmstripAvailable } from '../filmstrip/functions';
 
 import {
     SELECT_LARGE_VIDEO_PARTICIPANT,
+    SET_LARGE_VIDEO_DIMENSIONS,
     UPDATE_KNOWN_LARGE_VIDEO_RESOLUTION
 } from './actionTypes';
 
@@ -72,10 +73,29 @@ export function selectParticipantInLargeVideo(participant: ?string) {
  *     resolution: number
  * }}
  */
-export function updateKnownLargeVideoResolution(resolution: number) {
+export function updateKnownLargeVideoResolution(resolution) {
     return {
         type: UPDATE_KNOWN_LARGE_VIDEO_RESOLUTION,
         resolution
+    };
+}
+
+/**
+ * Sets the dimenstions of the large video in redux.
+ *
+ * @param {number} height - The height of the large video.
+ * @param {number} width - The width of the large video.
+ * @returns {{
+ *     type: SET_LARGE_VIDEO_DIMENSIONS,
+ *     height: number,
+ *     width: number
+ * }}
+ */
+export function setLargeVideoDimensions(height, width) {
+    return {
+        type: SET_LARGE_VIDEO_DIMENSIONS,
+        height,
+        width
     };
 }
 
